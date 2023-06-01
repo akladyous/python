@@ -1,6 +1,7 @@
 import ipdb
-from lib.pet import *
+from pet import *
 
 lulu = Pet("lulu", 11)
 
-ipdb.set_trace()
+print(lulu.name)
+# ipdb.set_trace()
