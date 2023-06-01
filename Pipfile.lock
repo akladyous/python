@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5feb5c25c38926bd710b91fecbcae5071c056a681425538b78cf8c2a26baad08"
+            "sha256": "4573718a696d970bd8bcf6683d07da8cf2dc6c65585e7b94248e7edd4ebf0b76"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,8 @@
             }
         ]
     },
-    "default": {
+    "default": {},
+    "develop": {
         "appnope": {
             "hashes": [
                 "sha256:02bd91c4de869fbb1e1c50aafc4098827a7a54ab2f39d9dcba6c9547ed920e24",
@@ -168,6 +169,5 @@
             ],
             "version": "==0.2.6"
         }
-    },
-    "develop": {}
+    }
 }
