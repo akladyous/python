@@ -25,6 +25,10 @@ class Weekday(Enum):
     SUNDAY = 7
 
 
+def start_date(day: Weekday):
+    print(day)
+
+
 class User:
     def __init__(self, name: str, age: int, start_day: Weekday) -> None:
         self.name = name

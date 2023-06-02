@@ -1,20 +1,26 @@
-import sqlite3
+from typing import TypeVar
 
+import sqlite3
 
 CONNECTION = sqlite3.connect("./orm.db")
 CURSOR = CONNECTION.cursor()
 
 
-class PetType(Enum):
-    dog = 1
-    cat = 2
-    rodent = 3
-    bird = 4
-    reptile = 5
-    exotic = 6
-
-
 class Pet:
+    all: list[PetType] = []
+    PET_TYPES = ["dog", "cat", "rodent", "bird", "reptile", "exotic"]
+
+    def __init__(
+        self: object, name: str, species: str, temperament: str, id: str = None
+    ) -> None:
+        self.name = name
+        self.species = species
+        self.temperament = temperament
+        self.id = id
+        Pet.all.append(self)
+
+
+class Pet1:
     PET_TYPES = Enum("Pet_Type", ["dog", "cat", "rodent", "bird", "reptile", "exotic"])
     x = PET_TYPES.cat
 
@@ -37,17 +43,10 @@ class Pet:
             temperament TEXT)
     """
 
+    @classmethod
     def drop_table():
         sql = """
           DROP TABLE IF EXISTS pets
         """
         res = CURSOR.execute(sql)
         return res
-
-
-lulu = Pet(
-    "lulu",
-    1,
-)
-# Pet.create_table
-print(Pet.__base__)
