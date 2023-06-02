@@ -20,6 +20,9 @@ class Pet:
         Pet.all.append(self)
 
 
+PetType = TypeVar("PetType", Pet)
+
+
 class Pet1:
     PET_TYPES = Enum("Pet_Type", ["dog", "cat", "rodent", "bird", "reptile", "exotic"])
     x = PET_TYPES.cat
