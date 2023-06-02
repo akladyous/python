@@ -1,4 +1,18 @@
+from abc import abstractmethod
 import logging
+
+logging.basicConfig(level=logging.INFO)
+
+
+class LoggedAgeAccess:
+    def __get__(self, obj, objtype=None):
+        value = obj._age
+        logging.info("Accessing %r giving %r", "age", value)
+        return value
+
+    def __set__(self, obj, value):
+        logging.info("Updating %r to %r", "age", value)
+        obj._age = value
 
 
 class User_instances:
@@ -19,7 +33,8 @@ class User_instances:
 
 
 class User:
-    min_age = 18
+    # min_age = 18
+    age = LoggedAgeAccess()  # Descriptor instance
 
     def __init__(self, first_name: str, last_name: str, age: int, id=None):
         self.first_name = first_name
@@ -31,6 +46,6 @@ class User:
 
 u1 = User("john", "doe", 20, 1234)
 print(u1.age)
-print(u1.min_age)
-x = u1.min_age = []
-print(x)
+# print(u1.min_age)
+# x = u1.min_age = []
+# print(x)
